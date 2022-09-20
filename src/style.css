@@ -22,3 +22,13 @@ li {
 .main-temperature img {
   margin-right: 10px;
 }
+.main-temperature strong {
+  font-size: 50px;
+  font-weight: 400;
+  line-height: 1;
+}
+
+.main-temperature .units {
+  position: relative;
+  top: -23px;
+}

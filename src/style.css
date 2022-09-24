@@ -35,3 +35,6 @@ li:first-letter {
   position: relative;
   top: -23px;
 }
+#icon {
+  margin-top: -24px;
+}

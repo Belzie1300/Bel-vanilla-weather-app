@@ -21,7 +21,6 @@ function formatDate(timestamp) {
   return `${day} ${hours}:${minutes}`;
 }
 function displayTemp(response) {
-  console.log(response);
   let currentTemp = document.querySelector("#temp");
   let cityElement = document.querySelector("#city");
   let tempDescription = document.querySelector("#temp-description");

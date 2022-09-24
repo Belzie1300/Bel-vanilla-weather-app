@@ -44,8 +44,16 @@ function displayTemp(response) {
     `http://openweathermap.org/img/wn/${response.data.weather[0].description}@2x.png`
   );
 }
-let apiKey = "c819171fe0abdc14039af4ef5dda283b";
-let city = "Osaka";
-let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
-console.log(apiUrl);
-axios.get(apiUrl).then(displayTemp);
+function search(city) {
+  let apiKey = "c819171fe0abdc14039af4ef5dda283b";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(displayTemp);
+}
+function handleSubmit(event) {
+  event.preventDefault();
+  let cityInputElement = document.querySelector("#city-input");
+  search(cityInputElement.value);
+}
+
+let form = document.querySelector("#search-form");
+form.addEventListener("submit", handleSubmit);

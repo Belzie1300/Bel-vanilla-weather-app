@@ -34,7 +34,18 @@ li:first-letter {
 .main-temperature .units {
   position: relative;
   top: -23px;
+  text-decoration: none;
 }
 #icon {
   margin-top: -24px;
+}
+
+.main-temperature .active {
+  color: black;
+  cursor: default;
+  font-weight: 500;
+  text-decoration: none;
+}
+.main-temperature .active:hover {
+  text-decoration: none;
 }

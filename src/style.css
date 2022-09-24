@@ -56,3 +56,13 @@ li:first-letter {
 #wind {
   font-weight: 500;
 }
+.weather-forecast {
+  text-align: center;
+}
+.weather-forecast-temp {
+  font-size: 12px;
+  font-weight: 700;
+}
+.weather-forecast-temp-min {
+  opacity: 0.6;
+}

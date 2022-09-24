@@ -20,7 +20,8 @@ function formatDate(timestamp) {
   let day = days[date.getDay()];
   return `${day} ${hours}:${minutes}`;
 }
-function displayForecast() {
+function displayForecast(response) {
+  console.log(response.data.daily);
   let forecastElement = document.querySelector("#forecast");
   let forecastHTML = `<div class="row">`;
   let days = ["Sun", "Mon", "Tue", "Wed", "Thu"];
@@ -47,7 +48,15 @@ function displayForecast() {
   forecastHTML = forecastHTML + `</div>`;
   forecastElement.innerHTML = forecastHTML;
 }
+function getForecast(coordinates) {
+  let apiKey = "c819171fe0abdc14039af4ef5dda283b";
+  let lon = coordinates.lon;
+  let lat = coordinates.lat;
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(displayForecast);
+}
 function displayTemp(response) {
+  console.log(response.data);
   let currentTemp = document.querySelector("#temp");
   let cityElement = document.querySelector("#city");
   let tempDescription = document.querySelector("#temp-description");
@@ -72,6 +81,7 @@ function displayTemp(response) {
     "alt",
     `http://openweathermap.org/img/wn/${response.data.weather[0].description}@2x.png`
   );
+  getForecast(response.data.coord);
 }
 function search(city) {
   let apiKey = "c819171fe0abdc14039af4ef5dda283b";
@@ -108,4 +118,3 @@ fahrenheitLink.addEventListener("click", showFahrenheitTemp);
 let celsiusLink = document.querySelector("#celsius-link");
 celsiusLink.addEventListener("click", showCelsiusTemp);
 search("Osaka");
-displayForecast();

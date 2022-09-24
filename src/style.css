@@ -19,6 +19,7 @@ li:first-letter {
   padding: 30px;
   border: 1px solid #dadde1;
 }
+
 .summary {
   margin-bottom: 20px;
 }
@@ -34,7 +35,6 @@ li:first-letter {
 .main-temperature .units {
   position: relative;
   top: -23px;
-  text-decoration: none;
 }
 #icon {
   margin-top: -24px;
@@ -48,4 +48,11 @@ li:first-letter {
 }
 .main-temperature .active:hover {
   text-decoration: none;
+}
+
+#humidity {
+  font-weight: 500;
+}
+#wind {
+  font-weight: 500;
 }

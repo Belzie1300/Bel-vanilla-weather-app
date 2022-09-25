@@ -69,7 +69,6 @@ function getForecast(coordinates) {
   axios.get(apiUrl).then(displayForecast);
 }
 function displayTemp(response) {
-  console.log(response.data);
   let currentTemp = document.querySelector("#temp");
   let cityElement = document.querySelector("#city");
   let tempDescription = document.querySelector("#temp-description");
@@ -106,28 +105,8 @@ function handleSubmit(event) {
   let cityInputElement = document.querySelector("#city-input");
   search(cityInputElement.value);
 }
-function showFahrenheitTemp(event) {
-  event.preventDefault();
-  let fahrenheitTemp = (celsiusTemp * 9) / 5 + 32;
-  let temperatureElement = document.querySelector("#temp");
-  celsiusLink.classList.remove("active");
-  fahrenheitLink.classList.add("active");
-  temperatureElement.innerHTML = Math.round(fahrenheitTemp);
-}
-function showCelsiusTemp(event) {
-  event.preventDefault();
-  celsiusLink.classList.add("active");
-  fahrenheitLink.classList.remove("active");
-  let temperatureElement = document.querySelector("#temp");
-  temperatureElement.innerHTML = Math.round(celsiusTemp);
-}
-let celsiusTemp = null;
 
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", handleSubmit);
 
-let fahrenheitLink = document.querySelector("#fahrenheit-link");
-fahrenheitLink.addEventListener("click", showFahrenheitTemp);
-let celsiusLink = document.querySelector("#celsius-link");
-celsiusLink.addEventListener("click", showCelsiusTemp);
 search("Osaka");
